@@ -1,9 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg3dghlb8nw0e"]
+[gd_scene load_steps=5 format=3 uid="uid://cg3dghlb8nw0e"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_u8bxi"]
 [ext_resource type="Texture2D" uid="uid://bnessj15eiv70" path="res://icon.svg" id="2_5xk2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6fuf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8ynh"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+radial_velocity_min = 70.0
+radial_velocity_max = 70.0
+gravity = Vector3(0, 98, 0)
+linear_accel_min = 15.0
+linear_accel_max = 15.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_u8bxi")
@@ -20,3 +31,9 @@ texture = ExtResource("2_5xk2s")
 zoom = Vector2(3, 3)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_p8ynh")
+explosiveness = 1.0
+collision_base_size = 128.0
