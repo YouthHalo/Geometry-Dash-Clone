@@ -7,9 +7,14 @@ const JUMP_VELOCITY = -350.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var falling = true
+
+
 func _ready():
 	velocity.x = speed
-func _physics_process(delta):
+	self.visible = true
+	
+	
+func movement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		$Sprite2D.modulate = Color(0,1,0)
@@ -26,5 +31,12 @@ func _physics_process(delta):
 		falling = true
 
 	if is_on_wall():
-		queue_free()
+		velocity = Vector2(0,0)
+		$Sprite2D.hide()
+		$GPUParticles2D.show()
+		$GPUParticles2D.emitting = true
+
+
+func _physics_process(delta):
+	movement(delta)
 	move_and_slide()

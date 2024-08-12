@@ -16,3 +16,7 @@ scale = Vector2(6.56563, 6.30157)
 [node name="Tiles" parent="." instance=ExtResource("3_eftsa")]
 position = Vector2(-951, 623)
 scale = Vector2(247.382, -6.90168)
+
+[node name="Tiles3" parent="." instance=ExtResource("3_eftsa")]
+position = Vector2(-224943, 1221)
+scale = Vector2(61197.9, 47.6332)
