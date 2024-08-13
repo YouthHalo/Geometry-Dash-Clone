@@ -36,6 +36,7 @@ drag_vertical_enabled = true
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_p8ynh")
+lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
 collision_base_size = 128.0

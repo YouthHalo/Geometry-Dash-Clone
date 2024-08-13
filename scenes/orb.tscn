@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb1ou4gp8t6bq"]
+[gd_scene load_steps=4 format=3 uid="uid://bb1ou4gp8t6bq"]
 
 [ext_resource type="Texture2D" uid="uid://bnessj15eiv70" path="res://icon.svg" id="1_r1x7l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bh7hk"]
 radius = 20.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ctsrl"]
+lifetime_randomness = 0.13
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 166.67
+gravity = Vector3(0, 0, 0)
 
 [node name="Orb" type="Area2D"]
 
@@ -14,3 +22,7 @@ texture = ExtResource("1_r1x7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bh7hk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_ctsrl")
