@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnvhiy04630dc"]
+[gd_scene load_steps=5 format=3 uid="uid://dnvhiy04630dc"]
 
 [ext_resource type="Script" path="res://scenes/testlevel.gd" id="1_3ekia"]
 [ext_resource type="PackedScene" uid="uid://cg3dghlb8nw0e" path="res://scenes/player.tscn" id="1_b376p"]
 [ext_resource type="PackedScene" uid="uid://cieiglsk0dsh2" path="res://scenes/tiles.tscn" id="3_eftsa"]
+[ext_resource type="PackedScene" uid="uid://bb1ou4gp8t6bq" path="res://scenes/orb.tscn" id="4_pk76l"]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_3ekia")
@@ -20,3 +21,9 @@ scale = Vector2(247.382, -6.90168)
 [node name="Tiles3" parent="." instance=ExtResource("3_eftsa")]
 position = Vector2(-224943, 1221)
 scale = Vector2(61197.9, 47.6332)
+
+[node name="Orb" parent="." instance=ExtResource("4_pk76l")]
+position = Vector2(462, 489)
+
+[connection signal="body_entered" from="Orb" to="Player" method="_on_orb_body_entered"]
+[connection signal="body_exited" from="Orb" to="Player" method="_on_orb_body_exited"]
